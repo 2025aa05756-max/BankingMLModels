@@ -6,7 +6,7 @@ import pickle
 # ---------------------------------------------------------
 # Load Model and Scaler
 # ---------------------------------------------------------
-model = pickle.load(open("model.pkl", "rb"))
+model = pickle.load(open("Random Forest.pkl", "rb"))
 scaler = pickle.load(open("scaler.pkl", "rb"))
 
 st.title("Bank Term Deposit Subscription Prediction")
