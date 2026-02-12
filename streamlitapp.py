@@ -6,7 +6,7 @@ import pickle
 # ---------------------------------------------------------
 # Load Model and Scaler
 # ---------------------------------------------------------
-model = pickle.load(open("XGBoost.pkl", "rb"))
+model = pickle.load(open("Random Forest.pkl", "rb"))
 scaler = pickle.load(open("scaler.pkl", "rb"))
 
 st.title("Bank Term Deposit Subscription Prediction")
@@ -18,27 +18,27 @@ st.write("Predict whether a customer will subscribe to a term deposit.")
 st.header("Enter Customer Details")
 
 age = st.number_input("Age", min_value=18, max_value=100, value=30)
-balance = st.number_input("Account Balance", value=1000)
-duration = st.number_input("Last Contact Duration (seconds)", value=100)
-campaign = st.number_input("Number of Contacts During Campaign", value=1)
-pdays = st.number_input("Days Passed After Last Contact (-1 means never)", value=-1)
-previous = st.number_input("Number of Previous Contacts", value=0)
-
 job = st.selectbox("Job", [
     "admin.", "blue-collar", "entrepreneur", "housemaid", "management",
     "retired", "self-employed", "services", "student", "technician",
     "unemployed", "unknown"
 ])
-
 marital = st.selectbox("Marital Status", ["married", "single", "divorced"])
 education = st.selectbox("Education", ["primary", "secondary", "tertiary", "unknown"])
 default = st.selectbox("Credit Default", ["yes", "no"])
-housing = st.selectbox("Housing Loan", ["yes", "no"])
+balance = st.number_input("Account Balance", value=1000)
+housing = st.selectbox("Housing", ["yes", "no"])
 loan = st.selectbox("Personal Loan", ["yes", "no"])
-contact = st.selectbox("Contact Type", ["cellular", "telephone"])
+contact = st.selectbox("Contact Type", ["cellular", "telephone", "Unknown"])
+day = st.selectbox("day", [
+    "1","2","3","4","5","6","7","8","9","10","11","12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "26", "27", "28", "29", "30", "31"])
 month = st.selectbox("Last Contact Month", [
     "jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"
 ])
+duration = st.number_input("Last Contact Duration (seconds)", value=100)
+campaign = st.number_input("Number of Contacts During Campaign", value=1)
+pdays = st.number_input("Days Passed After Last Contact (-1 means never)", value=-1)
+previous = st.number_input("Number of Previous Contacts", value=0)
 poutcome = st.selectbox("Previous Campaign Outcome", ["success", "failure", "other", "unknown"])
 
 # ---------------------------------------------------------
@@ -46,19 +46,20 @@ poutcome = st.selectbox("Previous Campaign Outcome", ["success", "failure", "oth
 # ---------------------------------------------------------
 input_data = pd.DataFrame({
     "age": [age],
-    "balance": [balance],
-    "duration": [duration],
-    "campaign": [campaign],
-    "pdays": [pdays],
-    "previous": [previous],
     "job": [job],
     "marital": [marital],
     "education": [education],
     "default": [default],
+    "balance": [balance],
     "housing": [housing],
     "loan": [loan],
     "contact": [contact],
+    "contact": [day],
     "month": [month],
+    "duration": [duration],
+    "campaign": [campaign],
+    "pdays": [pdays],
+    "previous": [previous],
     "poutcome": [poutcome]
 })
 
