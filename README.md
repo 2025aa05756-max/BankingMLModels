@@ -11,9 +11,9 @@ The classification goal is to predict if the client will subscribe (yes/no) a te
 c. **Models Used and comparison of metrics**
 
 Model Name	            Model Accuracy  AUC Score   Precision	  Recall  	Score  	MCC Score  
-XGBoost  	              0.907995        0.929058    0.634845    0.502836	0.561181	0.514894  
-Random Forest	          0.905341	      0.926016	  0.659306	  0.395085	0.494090 	0.463289  
-Logistic Regression     0.901360        0.905499	  0.645105	  0.348771	0.452761	0.426959  
+XGBoost  	                        0.907995        0.929058    0.634845    0.502836	0.561181	0.514894  
+Random Forest	               0.905341	      0.926016	  0.659306	  0.395085	0.494090 	0.463289  
+Logistic Regression               0.901360        0.905499	  0.645105	  0.348771	0.452761	0.426959  
 Naive Bayes (Gaussian)	0.864315 	      0.823126	  0.433096	  0.517013	0.471349 	0.396248  
 KNN	                    0.893619 	      0.808369	  0.586022 	  0.309074	0.404703	0.374213  
 Decision Tree 	        0.872719	      0.701213 	  0.457842	  0.477316	0.467376	0.395246  
