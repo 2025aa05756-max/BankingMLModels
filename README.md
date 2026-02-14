@@ -1,5 +1,7 @@
 a. **Problem Statement**
 
+Train and evaluate 6 machine learning models to predict if a customer will subscribe to Deposit or not based on the available data in Bank.csv file.
+Users should be able to upload the file and get the evaluation metrics, confusion matrix and the classification report. Create an app in streamlit.io
 
 b. **Dataset Description:**
 
